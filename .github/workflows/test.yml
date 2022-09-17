@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: skeet70/default-project-board-action@v1
         with:
+          project: 1
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           issue: ${{ github.event.issue.number }}
-          project: 1
