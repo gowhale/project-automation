@@ -1,4 +1,4 @@
-name: "Default Project"
+name: Add bugs to bugs project
 
 on:
   issues:
@@ -6,13 +6,13 @@ on:
       - opened
 
 jobs:
-  add_to_project:
+  add-to-project:
+    name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: skeet70/default-project-board-action@v1
+      - uses: actions/add-to-project@RELEASE_VERSION
         with:
-          project: "id:1"
-            
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          issue: ${{ github.event.issue.number }}
+          # You can target a repository in a different organization
+          # to the issue
+          project-url: https://github.com/users/gowhale/projects/1/
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
