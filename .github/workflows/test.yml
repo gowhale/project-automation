@@ -16,5 +16,5 @@ jobs:
         with:
           # You can target a repository in a different organization
           # to the issue
-          project-url: https://github.com/users/gowhale/projects/1/
+          project-url: https://github.com/users/gowhale/projects/2/
           github-token: ${{ secrets.PROJECT_PAT }}
