@@ -5,7 +5,7 @@ on:
     types:
       - opened
       
-permissions: read-all
+permissions: write-all
 
 jobs:
   add-to-project:
