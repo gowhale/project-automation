@@ -18,7 +18,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: recipes
-        path: recipes/test.json # or path/to/artifact
+        path: recipes/test.json
   
   lint:
     name: Lint files
