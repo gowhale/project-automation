@@ -23,11 +23,13 @@ jobs:
     steps:
        - name: upload-files
          uses: actions/checkout@v2
+       - name: Tar files
+         run: tar -cvf recipes.tar recipes/
        - name: upload-files
          uses: actions/upload-artifact@v3
          with:
           name: recipes
-          path: recipes/
+          path: recipes.tar
   
   lint:
     name: Lint files
