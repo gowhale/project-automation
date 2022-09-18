@@ -11,6 +11,11 @@ defaults:
     shell: bash
 
 jobs:
+  lsd:
+    name: lsd
+    runs-on: 'macos-latest'
+    steps:
+    - run: ls
   upload-recipes:
     name: Upload Recipes
     runs-on: 'macos-latest'
