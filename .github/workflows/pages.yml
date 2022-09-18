@@ -40,25 +40,14 @@ jobs:
       run: go tool cover -func=coverage.out 
     - name: Make Website Folder
       run: mkdir src
-    - name: Copy Go Files To Website
+    - name: Copy main.go Files To Website
       run: cp main.go src/
+    - name: Copy main_test.go Files To Website
+      run: cp main_test.go src/
     - name: List Files In Website Folder
       run: ls src/
     - name: Create HTML Cov File
       run: go tool cover -html coverage.out -o src/index.html
-    - name: upload-files
-      uses: actions/upload-artifact@v3
-      with:
-       name: recipes
-       path: src/
-    - name: Upload recipes to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-       repo_token: ${{ secrets.GITHUB_TOKEN }}
-       file: src/index.html
-       tag: ${{ github.ref }}
-       overwrite: true 
-       file_glob: true
     - name: Setup Pages
       uses: actions/configure-pages@v2
     - name: Upload artifact
