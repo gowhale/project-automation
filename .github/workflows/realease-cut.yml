@@ -15,15 +15,17 @@ jobs:
     name: lsd
     runs-on: 'macos-latest'
     steps:
-    - run: ls
+      - uses: actions/checkout@v2
+      - run: ls
   upload-recipes:
     name: Upload Recipes
     runs-on: 'macos-latest'
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/upload-artifact@v3
       with:
         name: recipes
-        path: /*.json
+        path: recipes/
   
   lint:
     name: Lint files
