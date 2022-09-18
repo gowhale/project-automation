@@ -38,14 +38,16 @@ jobs:
       run: go test -coverprofile=coverage.out ./... 
     - name: Go Check Coverage
       run: go tool cover -func=coverage.out 
+    - name: Make Website Folder
+      run: mkdir src
     - name: Create HTML Cov File
-      run: go tool cover -html coverage.out -o cover.html
+      run: go tool cover -html coverage.out -o src/cover.html
     - name: Setup Pages
       uses: actions/configure-pages@v2
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-       path: 'cover.html'
+       path: 'src/cover.html'
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v1
