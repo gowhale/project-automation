@@ -21,11 +21,13 @@ jobs:
     name: Upload Recipes
     runs-on: 'macos-latest'
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/upload-artifact@v3
-      with:
-        name: recipes
-        path: recipes/
+       - name: upload-files
+         uses: actions/checkout@v2
+       - name: upload-files
+         uses: actions/upload-artifact@v3
+         with:
+          name: recipes
+          path: recipes/
   
   lint:
     name: Lint files
