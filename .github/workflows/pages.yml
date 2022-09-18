@@ -41,7 +41,7 @@ jobs:
     - name: Make Website Folder
       run: mkdir src
     - name: Create HTML Cov File
-      run: go tool cover -html coverage.out -o src/cover.html
+      run: go tool cover -html coverage.out -o src/index.html
     - name: Setup Pages
       uses: actions/configure-pages@v2
     - name: Upload artifact
