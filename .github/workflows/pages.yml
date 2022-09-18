@@ -22,9 +22,12 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  run-tests:
+  deploy-test-page:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    steps:
+    steps:    
     - name: Checkout
       uses: actions/checkout@v3
     - name: Set up Go
@@ -37,24 +40,12 @@ jobs:
       run: go tool cover -func=coverage.out 
     - name: Create HTML Cov File
       run: go tool cover -html coverage.out -o cover.html
-    
-  
-  deploy:
-    needs: run-tests
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload entire repository
-          path: 'cover.html'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    - name: Setup Pages
+      uses: actions/configure-pages@v2
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+       path: 'cover.html'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
