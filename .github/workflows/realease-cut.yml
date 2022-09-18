@@ -11,6 +11,15 @@ defaults:
     shell: bash
 
 jobs:
+  upload-recipes:
+    name: Upload Recipes
+    runs-on: 'macos-latest'
+    steps:
+    - uses: actions/upload-artifact@v3
+      with:
+        name: tasty-recipes
+        path: recipes/ # or path/to/artifact
+  
   lint:
     name: Lint files
     runs-on: 'macos-latest'
