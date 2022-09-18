@@ -46,15 +46,6 @@ jobs:
       run: ls src/
     - name: Create HTML Cov File
       run: go tool cover -html coverage.out -o src/index.html
-    - name: Setup Pages
-      uses: actions/configure-pages@v2
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-       path: 'src/'
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
     - name: upload-files
       uses: actions/upload-artifact@v3
       with:
@@ -68,3 +59,13 @@ jobs:
        tag: ${{ github.ref }}
        overwrite: true 
        file_glob: true
+    - name: Setup Pages
+      uses: actions/configure-pages@v2
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+       path: 'src/'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
+
