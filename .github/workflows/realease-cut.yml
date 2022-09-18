@@ -23,7 +23,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: recipes
-        path: recipes/test.json
+        path: ${{ github.workspace }}/recipes/test.json
   
   lint:
     name: Lint files
