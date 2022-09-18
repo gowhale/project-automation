@@ -40,6 +40,8 @@ jobs:
       run: go tool cover -func=coverage.out 
     - name: Make Website Folder
       run: mkdir src
+    - name: List all including hidden
+      run: -ls -a -R 
     - name: Create HTML Cov File
       run: go tool cover -html coverage.out -o src/index.html
     - name: Setup Pages
