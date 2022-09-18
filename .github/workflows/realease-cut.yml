@@ -42,6 +42,7 @@ jobs:
         # List of GOOS and GOARCH pairs from `go tool dist list`
         goosarch:
           - 'darwin/amd64'
+          - 'windows/amd64'
           # etc
     steps:
       - name: Checkout code
